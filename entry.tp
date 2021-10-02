@@ -1,0 +1,73 @@
+{
+    "sdk": 3,
+    "version": 1,
+    "name": "TP.Lucid.ImageDetection",
+    "id": "TP.Lucid.ImageDetection",
+    "configuration": {
+        "colorDark": "#222423",
+        "colorLight": "#000000"
+    },
+    "plugin_start_cmd": "%TP_PLUGIN_FOLDER%ImageDetectionTP\\main.exe",
+    "settings": [
+        {
+            "name": "Debug",
+            "default": "False",
+            "type": "text"
+        }
+    ],
+    "categories": [
+        {
+            "id": "Main",
+            "name": "Image Detection",
+            "actions": [
+                {
+                    "id": "Lucid.ImageDetection",
+                    "name": "Find file on screen",
+                    "prefix": "Prefix",
+                    "type": "communicate",
+                    "tryInline": true,
+                    "format": "Find image {$Lucid.Image.Image$} on Monitor {$Lucid.Image.Monitors$} with confidence of {$Lucid.Image.Confidence$}",
+                    "data": [
+                        {
+                            "id": "Lucid.Image.Image",
+                            "type": "file",
+                            "label": "image"
+                        },
+                        {
+                            "id": "Lucid.Image.Monitors",
+                            "type": "number",
+                            "label": "monitor num",
+                            "default": "1"
+                        },
+                        {
+                            "id": "Lucid.Image.Confidence",
+                            "type": "number",
+                            "label": "Confidence",
+                            "default": "0.8"
+                        }
+                    ]
+                }
+            ],
+            "states": [
+                {
+                    "id": "Found",
+                    "type": "text",
+                    "desc": "If the image was found",
+                    "default": "False"
+                },
+                {
+                    "id": "xcoord",
+                    "type": "text",
+                    "desc": "x coordinate of image",
+                    "default": "0"
+                },
+                {
+                    "id": "ycoord",
+                    "type": "text",
+                    "desc": "y coordinate of image",
+                    "default": "0"
+                }
+            ]
+        }
+    ]
+}
