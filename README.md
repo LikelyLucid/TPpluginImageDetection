@@ -10,6 +10,6 @@ in this case just restart TP
 
 ## **Usage:**
 Both actions use the same style of inputs. Both actions are pretty much the same but one of them will click the centre of the image.
-Confidence controls how confident the program has to be in order for it to declare the image as found. This must be a float. 
+Confidence controls how confident the program has to be in order for it to declare the image as found. This must be a float (eg 80% = 0.8). 
 The action also updates the states giving the coords and True or False if the image has been found.
 
