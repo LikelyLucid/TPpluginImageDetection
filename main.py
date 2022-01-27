@@ -30,32 +30,31 @@ def find_image(template_file, monitor, confidence):
     if Debug == True:
         print(template.shape)
 
-    if max_val >= confidence:
-        with mss.mss() as mss_instance:
-            if Debug == True:
-                print(mss_instance.monitors)
-            location = monitor["left"]
-            monitor1 = mss_instance.monitors[1]
-            heightdifference = monitor["height"]-monitor1["height"]
-            if Debug == True:
-                print(heightdifference)
-        x, y = (max_loc[0]+template.shape[1], max_loc[1]+template.shape[0])
-
-        if Debug == True:
-            print(max_loc[0]+(template.shape[0]/2) +
-                  location, max_loc[1]+(template.shape[1]/2))
-        img = cv2.rectangle(
-            img, max_loc, (x, y), (255, 0, 0), 2)
-
-        if Debug == True:
-            cv2.imshow("img", img)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            print(max_loc[0]+(template.shape[0]/2) + location,
-                  max_loc[1]+(template.shape[1]/2))
-        return (max_loc[0]+(template.shape[1]/2) + location, (max_loc[1]+(template.shape[0]/2)-heightdifference)), True
-    else:
+    if max_val < confidence:
         return (0, 0), False
+    with mss.mss() as mss_instance:
+        if Debug == True:
+            print(mss_instance.monitors)
+        location = monitor["left"]
+        monitor1 = mss_instance.monitors[1]
+        heightdifference = monitor["height"]-monitor1["height"]
+        if Debug == True:
+            print(heightdifference)
+    x, y = (max_loc[0]+template.shape[1], max_loc[1]+template.shape[0])
+
+    if Debug == True:
+        print(max_loc[0]+(template.shape[0]/2) +
+              location, max_loc[1]+(template.shape[1]/2))
+    img = cv2.rectangle(
+        img, max_loc, (x, y), (255, 0, 0), 2)
+
+    if Debug == True:
+        cv2.imshow("img", img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        print(max_loc[0]+(template.shape[0]/2) + location,
+              max_loc[1]+(template.shape[1]/2))
+    return (max_loc[0]+(template.shape[1]/2) + location, (max_loc[1]+(template.shape[0]/2)-heightdifference)), True
 
 
 @TPClient.on('info')
