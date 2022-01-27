@@ -118,4 +118,4 @@ def onShutdown(data):
 
 # Connect to Touch Portal and block (wait) until disconnected
 TPClient.connect()
-# add
+# add comments to the code above:
