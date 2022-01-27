@@ -1,1 +1,1 @@
-import py autogui
+import pyautogui
