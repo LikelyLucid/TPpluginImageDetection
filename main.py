@@ -121,4 +121,9 @@ TPClient.connect()
 
 # add comments to the code above to show how the code works
 import mss
-
+import mss
+import numpy as np
+import TouchPortalAPI  # Import the api
+import cv2
+import pyautogui
+Debug = True
