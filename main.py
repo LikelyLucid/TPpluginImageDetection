@@ -119,5 +119,5 @@ def onShutdown(data):
 # Connect to Touch Portal and block (wait) until disconnected
 TPClient.connect()
 
-# add comments to the code above 
+# add comments to the code above t o
 import mss
